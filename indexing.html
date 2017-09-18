@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--  <link rel="stylesheet" href="/style/button_style.css"> -->
+    <link rel="stylesheet" href="/style/intranet_style.css">
+</head>
+
+<script lang="text/javascript">
+
+  function green(id) {
+    document.getElementById(id).style.backgroundColor = '#4CAF50'
+ }
+
+  function show (toBlock){
+    setDisplay(toBlock, 'block');
+ }
+  function hide (toNone) {
+    setDisplay(toNone, 'none');
+ }
+  function setDisplay (target, str) {
+    document.getElementById(target).style.display = str;
+ }
+
+  function reset_tel2() {
+      document.getElementById("E49_2").checked = false;
+      document.getElementById("R630_2").checked = false;
+      document.getElementById("S650_2").checked = false;
+      document.getElementById("noshow").checked = true;
+      document.getElementById("check1_2").style.backgroundColor = 'lightgrey';
+  }
+
+  function nl() {
+    document.getElementsByTagName("input")["Lang"].value = "NL";
+    document.getElementsByTagName("input")["Land"].value = "NL";
+    document.getElementsByTagName("select")["filnl"].setAttribute("required", "");
+    document.getElementsByTagName("select")["filnl"].removeAttribute("disabled", "");
+    document.getElementsByTagName("select")["filbe"].setAttribute("disabled", "");
+    document.getElementsByTagName("select")["filde"].setAttribute("disabled", "");
+    document.getElementById("header").innerHTML = "Apparaten kiezer";
+    document.getElementById("h2").innerHTML = "Selecteer de in het filiaal aanwezige apparaten";
+    document.getElementById("select").innerHTML = "Selecteer het filiaal:";
+    document.getElementById("check1").innerHTML = "Telefoon:";
+    document.getElementById("extra").innerHTML = "Ik heb twee verschillende telefoons";
+    document.getElementById("check1_2").innerHTML = "Telefoon 2:";
+    document.getElementById("not").innerHTML = "Ohnee toch niet";
+    document.getElementById("check2").innerHTML = "Telefoon centrale:";
+    document.getElementsByTagName("label")["Other"].style.backgroundImage = "url('/img/Other.jpg')";
+    document.getElementById("check3").innerHTML = "Stickerprinter:";
+    document.getElementById("check4").innerHTML = "Scanner:";
+    document.getElementById("send").value = "Verzenden";
+  }
+
+  function be() {
+    document.getElementsByTagName("input")["Land"].value = "BE";
+    document.getElementsByTagName("input")["Lang"].value = "NL";
+    document.getElementsByTagName("select")["filbe"].setAttribute("required", "");
+    document.getElementsByTagName("select")["filbe"].removeAttribute("disabled", "");
+    document.getElementsByTagName("select")["filde"].setAttribute("disabled", "");
+    document.getElementsByTagName("select")["filnl"].setAttribute("disabled", "");
+    document.getElementById("header").innerHTML = "Apparaten kiezer";
+    document.getElementById("h2").innerHTML = "Selecteer de in het filiaal aanwezige apparaten";
+    document.getElementById("be_select").innerHTML = "Selecteer het filiaal:";
+    document.getElementById("check1").innerHTML = "Telefoon:";
+    document.getElementById("extra").innerHTML = "Ik heb twee verschillende telefoons";
+    document.getElementById("check1_2").innerHTML = "Telefoon 2:";
+    document.getElementById("not").innerHTML = "Ohnee toch niet";
+    document.getElementById("check2").innerHTML = "Telefoon centrale:";
+    document.getElementsByTagName("label")["Other"].style.backgroundImage = "url('/img/Other.jpg')";
+    document.getElementById("check3").innerHTML = "Stickerprinter:";
+    document.getElementById("check4").innerHTML = "Scanner:";
+    document.getElementById("send").value = "Verzenden";
+  }
+
+  function fr() {
+    document.getElementsByTagName("input")["Lang"].value = "FR";
+    document.getElementById("header").innerHTML = "Sélecteur&nbspd'appareil";
+    document.getElementById("h2").innerHTML = "Sélectionnez les appareils présent dans la filiale";
+    document.getElementById("be_select").innerHTML = "Sélectionnez votre magasin:";
+    document.getElementById("check1").innerHTML = "Téléphone:";
+    document.getElementById("extra").innerHTML = "J'ai deux téléphones différents";
+    document.getElementById("check1_2").innerHTML = "Téléphone 2:";
+    document.getElementById("not").innerHTML = "Oh, non, je ne le fais pas";
+    document.getElementById("check2").innerHTML = "Station de base téléphonique:";
+    document.getElementsByTagName("label")["Other"].style.backgroundImage = "url('/img/Other_fr.jpg')";
+    document.getElementById("check3").innerHTML = "Imprimante autocollante:";
+    document.getElementById("check4").innerHTML = "Scanner d'inventaire:";
+    document.getElementById("send").value = "Soumettre";
+  }
+
+  function de() {
+    document.getElementsByTagName("input")["Lang"].value = "DE";
+    document.getElementsByTagName("input")["Land"].value = "DE";
+    document.getElementsByTagName("select")["filde"].setAttribute("required", "");
+    document.getElementsByTagName("select")["filde"].removeAttribute("disabled", "");
+    document.getElementsByTagName("select")["filbe"].setAttribute("disabled", "");
+    document.getElementsByTagName("select")["filnl"].setAttribute("disabled", "");
+    document.getElementById("header").innerHTML = "Geräteauswahl";
+    document.getElementById("h2").innerHTML = "Wählen Sie die im Laden vorhandenen Geräte aus";
+    document.getElementById("select").innerHTML = "Wählen Sie Ihr Geschäft aus:";
+    document.getElementById("check1").innerHTML = "Telefon:";
+    document.getElementById("extra").innerHTML = "Ich habe zwei verschiedene Telefone";
+    document.getElementById("check1_2").innerHTML = "Telefon 2:";
+    document.getElementById("not").innerHTML = "Oh, ich habe nur ein Telefon";
+    document.getElementById("check2").innerHTML = "Telefonzentrale:";
+    document.getElementsByTagName("label")["Other"].style.backgroundImage = "url('/img/Other_de.jpg')";
+    document.getElementById("check3").innerHTML = "Stickerdrucker:";
+    document.getElementById("check4").innerHTML = "Inventarscanner:";
+    document.getElementById("send").value = "Senden";
+  }
+
+</script>
+
+<body>
+
+<p class="logo" id="logo"></p>
+<div class="headerholder">
+<p class="header" id="header">Apparaten&nbspkiezer</p>
+</div>
+<p class="h2" id="h2">Selecteer de in het filiaal aanwezige apparaten</p>
+<p class="h2_sub" id="BEFR" style="display:none" onclick="fr(); show('BENL'); hide('BEFR')">Soyez français</p>
+<p class="h2_sub" id="BENL" style="display:none" onclick="be(); show('BEFR'); hide('BENL')">Nederlands</p>
+<div class="nowrap">
+<p class="landselect" onclick="nl(); show('NL'); hide('BEFR'); hide('BENL'); hide('BE'); hide('DE'); hide('hold')">NL</p>
+<p class="landselect" onclick="be(); show('BE'); show('BEFR'); hide('BENL'); hide('NL'); hide('DE'); hide('hold')">BE</p>
+<p class="landselect" onclick="de(); show('DE'); hide('BEFR'); hide('BENL'); hide('NL'); hide('BE'); hide('hold')">DE</p>
+</div>
+
+<div class="form">
+<form name="winkel_apparaten" action="/result/choice.php" method="POST" autocomplete="off">
+<input type="radio" name="Lang" value="NL" id="noshow" checked="checked">
+<input type="radio" name="Land" value="NL" id="noshow" checked="checked">
+ <div class="placeholder">
+<div id="holder">
+  <select name="store" class="select" id="hold">
+    <option id="select" value="" disabled selected>Selecteer eerst je land</option>
+  </select>
+</div>
+  <div class="NL" id="NL">
+  <select name="store" class="select" id="filnl" required>
+    <option id="select" value="" disabled selected>Selecteer het filiaal:</option>
+    <option value="Sliedrecht">1 Sliedrecht</option>
+    <option value="Hengelo">2 Hengelo</option>
+    <option value="Drachten">3 Drachten</option>
+    <option value="Assen">4 Assen</option>
+    <option value="Capelle">6 Capelle</option>
+    <option value="Maassluis">7 Maassluis</option>
+    <option value="Eindhoven">8 Eindhoven</option>
+    <option value="Deventer">9 Deventer</option>
+    <option value="Oosterhout">10 Oosterhout</option>
+    <option value="Uden">11 Uden</option>
+    <option value="Zevenaar">12 Zevenaar</option>
+    <option value="Mijdrecht">13 Mijdrecht</option>
+    <option value="Veenendaal">14 Veenendaal</option>
+    <option value="Zaltbommel">15 Zaltbommel</option>
+    <option value="Hoogeveen">16 Hoogeveen</option>
+    <option value="Nieuwegein">17 Nieuwegein</option>
+    <option value="Zoeterwoude">18 Zoeterwoude</option>
+    <option value="Den Haag">20 Den Haag</option>
+    <option value="Groningen">21 Groningen</option>
+    <option value="Heerlen">22 Heerlen</option>
+    <option value="Alkmaar">23 Alkmaar</option>
+    <option value="Amersfoort">24 Amersfoort</option>
+  </select>
+</div>
+<div class="BE" id="BE">
+  <select name="store" class="select" id="filbe" required>
+    <option id="be_select" value="" disabled selected>Selecteer het filiaal:</option>
+    <option value="Wommelgem">1 Wommelgem</option>
+    <option value="St. Joris-Winge">2 St. Joris-Winge</option>
+    <option value="Roeselare">5 Roeselare</option>
+    <option value="Lochristi">6 Lochristi</option>
+    <option value="Genk">7 Genk</option>
+    <option value="Anderlues">9 Anderlues</option>
+    <option value="Herstal">10 Herstal</option>
+  </select>
+</div>
+<div class="DE" id="DE">
+<select name="store" class="select" id="filde" required>
+  <option id="select" value="" disabled selected>Wählen Sie Ihr Geschäft aus:</option>
+  <option value="Bochum">1 Bochum</option>
+  <option value="Oberhausen">6 Oberhausen</option>
+  <option value="Hannover">7 Hannover</option>
+  <option value="Bremen">8 Bremen</option>
+  <option value="Wurselen">9 Würselen</option>
+  <option value="Wiesbaden">10 Wiesbaden</option>
+  <option value="Dortmund">11 Dortmund</option>
+  <option value="Hanau">12 Hanau</option>
+  <option value="Berlin">13 Berlin</option>
+  <option value="Krefeld">14 Krefeld</option>
+  <option value="Furth">15 Fürth</option>
+  <option value="Hamburg-Halstenbek">16 Hamburg-Halstenbek</option>
+  <option value="Munchen">17 München</option>
+  <option value="Waiblingen">18 Waiblingen</option>
+</select>
+</div>
+<hr/>
+<div class="nowrap">
+ <p class="h3" id="check1">Telefoon:</p>
+  <input type="radio" name="telefoon" value="E49" id="E49" required
+   data-bind="checked: chk" onclick="green('check1')"/><label for="E49"></label>
+  <input type="radio" name="telefoon" value="R630" id="R630"
+   data-bind="checked: chk" onclick="green('check1')"/><label for="R630"></label>
+  <input type="radio" name="telefoon" value="S650" id="S650"
+   data-bind="checked: chk" onclick="green('check1')"/><label for="S650"></label>
+<br/>
+</div>
+ <p id="extra" class="extra" onclick="show('hidden'); hide('extra')">Ik heb twee verschillende telefoons</p>
+<div id="hidden">
+  <div class="nowrap">
+  <br/>
+  <hr/>
+ <p class="h3" id="check1_2">Telefoon 2:</p>
+  <input type="radio" name="telefoon2" value="E49" id="E49_2"
+   data-bind="checked: chk" onclick="green('check1_2')"/><label for="E49_2"></label>
+  <input type="radio" name="telefoon2" value="R630" id="R630_2"
+   data-bind="checked: chk" onclick="green('check1_2')"/><label for="R630_2"></label>
+  <input type="radio" name="telefoon2" value="S650" id="S650_2"
+   data-bind="checked: chk" onclick="green('check1_2')"/><label for="S650_2"></label>
+  <input type="radio" name="telefoon2" value="" id="noshow" checked="checked">
+<br/>
+<br/>
+</div>
+  <p id="not" class="extra" onclick="show('extra'); hide('hidden'); reset_tel2()">Ohnee toch niet</p>
+</div>
+<hr/>
+<div class="nowrap">
+ <p class="h3" id="check2">Telefoon centrale:</p>
+  <input type="radio" name="telefooncentrale" value="SX205" id="SX205" required
+   data-bind="checked: chk" onclick="green('check2')"/><label for="SX205"></label>
+  <input type="radio" name="telefooncentrale" value="C3000" id="C3000"
+   data-bind="checked: chk" onclick="green('check2')"/><label for="C3000"></label>
+  <input type="radio" name="telefooncentrale" value="SX353" id="SX353"
+   data-bind="checked: chk" onclick="green('check2')"/><label for="SX353"></label>
+  <input type="radio" name="telefooncentrale" value="DX600" id="DX600"
+   data-bind="checked: chk" onclick="green('check2')"/><label for="DX600"></label>
+  <input type="radio" name="telefooncentrale" value="Other" id="Other"
+   data-bind="checked: chk" onclick="green('check2')"/><label for="Other" id="Other"></label>
+<br/>
+</div>
+<hr/>
+<div class="nowrap">
+ <p class="h3" id="check3">Stickerprinter:</p>
+  <input type="radio" name="stickerprinter" value="B443" id="B443" required
+   data-bind="checked: chk" onclick="green('check3')"/><label for="B443"></label>
+  <input type="radio" name="stickerprinter" value="BSV4" id="BSV4"
+   data-bind="checked: chk" onclick="green('check3')"/><label for="BSV4"></label>
+  <input type="radio" name="stickerprinter" value="BFV4" id="BFV4"
+   data-bind="checked: chk" onclick="green('check3')"/><label for="BFV4"></label>
+<br/>
+</div>
+<hr/>
+<div class="nowrap">
+ <p class="h3" id="check4">Scanner:</p>
+  <input type="radio" name="scanner" value="F732" id="F732" required
+   data-bind="checked: chk" onclick="green('check4')"/><label for="F732"></label>
+  <input type="radio" name="scanner" value="F734" id="F734"
+   data-bind="checked: chk" onclick="green('check4')"/><label for="F734"></label>
+  <input type="radio" name="scanner" value="X3" id="X3"
+   data-bind="checked: chk" onclick="green('check4')"/><label for="X3"></label>
+<br/>
+</div>
+<hr/>
+ <div class="submitholder">
+  <input id="send" type="submit" class="submit" value="Verzenden">
+ </div>
+</form>
+</div>
+</div>
+</body>
+</html>
